@@ -82,10 +82,10 @@ The backend for a bootcamp directory website
 - Users can only be made admin by updating the database field manually
 
 ## Security
-- Encrypt passwords and reset tokens
-- Prevent cross site scripting - XSS
-- Prevent NoSQL injections
-- Add a rate limit for requests of 100 requests per 10 minutes
-- Protect against http param polution
-- Add headers for security (helmet)
-- Use cors to make API public (for now)
+- Encrypted passwords and reset tokens
+- Prevented cross site scripting - XSS
+- Prevented NoSQL injections
+- Added a rate limit for requests of 100 requests per 10 minutes
+- Protected against http param polution
+- Added headers for security (helmet)
+- Used cors to make API public (for now)
