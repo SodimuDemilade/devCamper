@@ -36,14 +36,13 @@ export const login = asyncHandler(async (req, res, next) => {
     }
 
     // Check for user
-    const user = await User.findOne({ email });
-    const userPasswordInclude = user.select("+password"); // adding the password so we can validate it for login
+    const user = await User.findOne({ email }).select("+password"); // adding the password so we can validate it for login
     if (!user) {
         return next(new ErrorResponse("Invalid credentials", 401));
     }
 
     // Check if password matches
-    const isMatch = await userPasswordInclude.matchPassword(password);
+    const isMatch = await user.matchPassword(password);
     if (!isMatch) {
         return next(new ErrorResponse("Invalid credentials", 401));
     }
@@ -212,7 +211,9 @@ const sendTokenResponse = (user, statusCode, res) => {
         options.secure = true;
     }
 
+    const {password, ...userWithoutPassword} = user.toObject();
+
     res.status(statusCode)
         .cookie("token", token, options)
-        .json({ success: true, token, userInfo: user });
+        .json({ success: true, token, userInfo: userWithoutPassword });
 };
