@@ -10,6 +10,9 @@ const CourseSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please add a description"],
     },
+    tags: {
+        type: [String],
+    },
     weeks: {
         type: String,
         required: [true, "Please add number of weeks"],
