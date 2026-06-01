@@ -28,6 +28,8 @@ import courses from "./routes/courses.js";
 import auth from "./routes/auth.js";
 import users from "./routes/users.js";
 import reviews from "./routes/reviews.js";
+import enrollments from "./routes/enrollments.js";
+import savedBootcamps from "./routes/savedBootcamps.js";
 
 const app = express();
 
@@ -84,6 +86,8 @@ app.use("/api/v1/courses", courses);
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/users", users);
 app.use("/api/v1/reviews", reviews);
+app.use("/api/v1/enrollments", enrollments);
+app.use("/api/v1/savedBootcamps", savedBootcamps);
 
 // Middleware is executed linearly so this has to be after the routers for the error handler to catch it
 app.use(errorHandler);
