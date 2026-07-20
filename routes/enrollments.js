@@ -22,7 +22,7 @@ router.route("/").get(
     getEnrollments,
 );
 
-router.route("/user").get(protect, authorize("user"), getEnrollmentByUser);
+router.route("/user").get(getEnrollmentByUser);
 
 router.route("/bootcamp/:bootcampId").get(protect, authorize("publisher"), getEnrollmentByBootcamp);
 
