@@ -10,13 +10,13 @@ const router = express.Router({ mergeParams: true }); // mergeParam is to be abl
 router
     .route("/")
     .get(
-        advancedResults(Review, {
+        advancedResults(Review, [{
             path: "bootcamp",
             select: "name description",
         }, {
             path: "user",
             select: "name",
-        }),
+        }]),
         getReviews,
     )
     .post(protect, authorize("user", "admin"), addReview);
