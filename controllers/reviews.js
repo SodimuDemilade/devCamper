@@ -9,7 +9,7 @@ import Bootcamp from "../models/Bootcamp.js";
 // @access -   Public
 export const getReviews = asyncHandler(async (req, res, next) => {
     if (req.params.bootcampId) {
-        const reviews = await Review.find({ bootcamp: req.params.bootcampId }).populate("users", "name");
+        const reviews = await Review.find({ bootcamp: req.params.bootcampId }).populate("user", "name");
 
         return res.status(200).json({
             success: true,
