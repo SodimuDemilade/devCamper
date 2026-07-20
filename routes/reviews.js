@@ -13,6 +13,9 @@ router
         advancedResults(Review, {
             path: "bootcamp",
             select: "name description",
+        }, {
+            path: "user",
+            select: "name",
         }),
         getReviews,
     )
