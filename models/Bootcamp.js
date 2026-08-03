@@ -99,7 +99,7 @@ const BootcampSchema = new mongoose.Schema(
             default: false,
         },
         category: {
-            type: String,
+            type: [String],
             required: [true, "Please add a category."],
             enum: ["Web Development", "Mobile Development", "AI & Machine Learning", "Data Science", "UI/UX Design", "Cloud & DevOps"]
         },
