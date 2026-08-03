@@ -24,7 +24,7 @@ router.route("/").get(
 
 router.route("/user").get(protect, getEnrollmentByUser);
 
-router.route("/bootcamp/:bootcampId").get(protect, getEnrollmentByBootcamp);
+router.route("/bootcamp/:bootcampId").get(getEnrollmentByBootcamp);
 
 router.route("/enroll").post(protect, authorize("user"), addEnrollment);
 
