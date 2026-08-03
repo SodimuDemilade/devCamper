@@ -33,6 +33,18 @@ import savedBootcamps from "./routes/savedBootcamps.js";
 
 const app = express();
 
+app.use(
+    cors({
+        origin: [
+            "http://localhost:5173",
+            "https://bootcamp-frontend-puce.vercel.app",
+        ],
+        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+        credentials: true,
+    }),
+);
+
 app.set("query parser", "extended");
 
 //Body parser
