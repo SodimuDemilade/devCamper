@@ -98,6 +98,11 @@ const BootcampSchema = new mongoose.Schema(
             type: Boolean,
             default: false,
         },
+        category: {
+            type: String,
+            required: true,
+            enum: ["Web Development", "Mobile Development", "AI & Machine Learning", "Data Science", "UI/UX Design", "Cloud & DevOps"]
+        },
         createdAt: {
             type: Date,
             default: Date.now,
